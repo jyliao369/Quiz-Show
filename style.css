@@ -1,10 +1,21 @@
+body {
+    /* background-color: black; */
+}
+
 #header {
+    padding: 5%;
     color: brown;
     text-align: center;
+    font-size: 300%;
+    border-style: solid;
 }
 
 div {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    float: left;
+    border-style: solid;
+    width: 48%;
+    margin: 13.6px;
+    height: 500px;
+    background-color: powderblue;
 }
