@@ -9,7 +9,6 @@
     <!-- Remember this link on the bottom. It allows you to link your CSS/Style sheet if it is at the root -->
     <link rel="stylesheet" href="style.css"> 
     <!-- Make sure to remember this. This is the correct setup that will link your Javascript with the html -->
-    <script src="script.js"></script>
 </head>
 
 <!-- This is where the header is placed normally for the title of the game show -->
@@ -20,22 +19,36 @@
 </header>
 
 <!-- Here the body is going to be split into two parts: -->
-<!-- The LEFT side will house the questions and hopefull cycle through them -->
-<!-- The RIGHT side will house the timer as well as the score -->
+
 <body>
 
     <!-- This is where the questions will go -->
-    <div id = "questionContainer">
-        <p>hi</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto assumenda alias modi rerum dolore ratione provident veniam dolor autem, maiores optio incidunt quod a qui, libero, nisi accusamus aperiam deleniti.</p>
-    </div>
+    <section id = "questionContainer">
+        
+        <p id = "questions">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur illo similique delectus soluta, fuga ad minima officia totam. Culpa distinctio, labore sapiente magnam sit corrupti eaque! Soluta doloremque quas autem?</p>
+        
+        <br>
+
+        <div class="buttons">
+            <button id="btn0">A</span></button>
+            <p id = "choice0">hi</p>
+            <button id="btn1">B</span></button>
+            <p id = "choice1">hi</p>
+            <button id="btn2">C</span></button>
+            <p id = "choice2">hi</p>
+            <button id="btn3">D</span></button>
+            <p id = "choice3">hi</p>
+        </div>
+
+    </section>
 
     <!-- This is where the timer and score will go -->
-    <div id = "scoreContainer">
-        <p>hi</p>
-    </div>
+    <section id = "scoreContainer">
+        <p></p>
+    </section>
     
-</body>
+    <script src="script.js"></script>
 
+</body>
 
 </html>

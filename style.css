@@ -10,7 +10,7 @@ body {
     border-style: solid;
 }
 
-div {
+section {
     display: flex;
     float: left;
     border-style: solid;
