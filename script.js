@@ -1,10 +1,25 @@
-// Here are all the variables that need to be established
+// Here are all the variables that need to be established that grabs elements from 
+// the HTML based on the ID.
 var testing = document.getElementById('scoreContainer');
 var currentQues = document.getElementById('questions');
+var timerEl = document.getElementById('timer');
 var choiceA = document.getElementById('choice0');
 var choiceB = document.getElementById('choice1');
 var choiceC = document.getElementById('choice2');
 var choiceD = document.getElementById('choice3');
+
+// This is the start button. Once the button is pressed the timer should start
+// and the question/answers should be displayed.
+var startSwitch = document.getElementById('start')
+
+var switchEl = document.getElementById('switch');
+
+// This variable will help determine which questions is being displayed. With it being
+// zero, this is the first question that is going to be displayed.
+var current = 0;
+
+// This variable will determine the overall time to answer the questions.
+var timeCount;
 
 // These are the questions that will be used in the quiz.
 // For now there are only three. More will be added. 
@@ -39,18 +54,62 @@ var quizQues = [
     }
 ]
 
+console.log(quizQues.length);
 console.log(quizQues[0].question);
 console.log(quizQues[1].question);
 console.log(quizQues[2].question);
 
+function timer () {
+    
+    // Currently, the time limit is only 10 seconds but this can be adjusted.
+    timeCount = 10;
+    var countDown = setInterval(function() {
+        // console.log(timeCount);
+        timeCount --;
+        timerEl.textContent = timeCount + " seconds left";
+
+        if(timeCount === 0) {
+            clearInterval(countDown);
+            timerEl.textContent = "Time's Up!! You Lose!!";
+        }
+
+    }, 1000);
+}
+
+// This function here is to display the question as well as display the
+// Answer choices for those specific questions. 
+// Originally, I had it display the question in random order based on the length of
+// the array. Now we should try to get it to go in the order of the array. 
 function showQues() {
 
-    currentQues.textContent = quizQues[1].question;
-    choiceA.textContent = quizQues[1].a;
-    choiceB.textContent = quizQues[1].b;
-    choiceC.textContent = quizQues[1].c;
-    choiceD.textContent = quizQues[1].d;
+    // var random = Math.floor(Math.random() * quizQues.length);
+
+    currentQues.textContent = quizQues[current].question;
+    choiceA.textContent = quizQues[current].a;
+    choiceB.textContent = quizQues[current].b;
+    choiceC.textContent = quizQues[current].c;
+    choiceD.textContent = quizQues[current].d;
+
+    current++;
 
 }
 
-showQues();
+// This event listener should be able to start the timer and display
+// the questions and the answers for the quiz
+startSwitch.addEventListener("click", function() {
+    timeCount = 0;
+    timer();
+    showQues();
+});
+
+
+
+// switchEl.addEventListener("click", function() {
+  
+//     showQues();
+
+// }
+// );
+
+// showQues();
+// timer();

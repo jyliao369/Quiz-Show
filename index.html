@@ -13,9 +13,9 @@
 
 <!-- This is where the header is placed normally for the title of the game show -->
 <header>
-
     <h1 id = "header">THIS IS THE ULTIMATE JAVASCRIPT QUIZ SHOW</h1>
-
+    <p id="rule">The Rules are simple: Start the game and answer as many questions on web Development in the allotted time. Run out of time and the game is over</p>
+    <button id = "start">Start the Quiz!!!</button>
 </header>
 
 <!-- Here the body is going to be split into two parts: -->
@@ -26,7 +26,6 @@
     <section id = "questionContainer">
         
         <p id = "questions">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur illo similique delectus soluta, fuga ad minima officia totam. Culpa distinctio, labore sapiente magnam sit corrupti eaque! Soluta doloremque quas autem?</p>
-        
         <br>
 
         <div class="buttons">
@@ -40,11 +39,14 @@
             <p id = "choice3">hi</p>
         </div>
 
+        <button id="switch">Switch Questions</button>
+
     </section>
 
     <!-- This is where the timer and score will go -->
     <section id = "scoreContainer">
-        <p></p>
+        <p id = "timer"></p>
+        <p id = "score"></p>
     </section>
     
     <script src="script.js"></script>

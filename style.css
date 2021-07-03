@@ -10,6 +10,17 @@ body {
     border-style: solid;
 }
 
+#rule {
+    text-align: center;
+}
+
+#start {
+    position: relative;
+    margin-left: 725px;
+    padding: 20px;
+    font-size: 25px;
+}
+
 section {
     display: flex;
     float: left;
