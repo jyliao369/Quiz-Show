@@ -14,7 +14,13 @@
 <!-- This is where the header is placed normally for the title of the game show -->
 <header>
     <h1 id = "header">THIS IS THE ULTIMATE JAVASCRIPT QUIZ SHOW</h1>
-    <p id="rule">The Rules are simple: Start the game and answer as many questions on web Development in the allotted time. Run out of time and the game is over</p>
+    <div id="rule">
+        <p>The Rules: </p>
+        <p>There are 10 questions in this quiz that will test your knowledge on Web Development.</p>
+        <p>You have 5 mins or 300 seconds to finish the quiz. Choosing the wrong answer decreases the time by 5 seconds.</p>
+        <p>Run out of time and the game is over.</p> 
+    </div>
+    
     <button id = "start">Start the Quiz!!!</button>
 </header>
 
@@ -24,28 +30,33 @@
 
     <!-- This is where the questions will go -->
     <section id = "questionContainer">
-        
-        <p id = "questions">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur illo similique delectus soluta, fuga ad minima officia totam. Culpa distinctio, labore sapiente magnam sit corrupti eaque! Soluta doloremque quas autem?</p>
+
+        <p id = "introText">Think you got what it takes?
         <br>
+        Think you understand Web Development?
+        <br>
+        Then press the START button and test your knowledge!</p> 
+        
+        <p id = "questions"></p>
 
         <div class="buttons">
             <button id="btn0">A</button>
-            <p id = "choice0">hi</p>
+            <p id = "choice0">-----</p>
             <button id="btn1">B</button>
-            <p id = "choice1">hi</p>
+            <p id = "choice1">-----</p>
             <button id="btn2">C</button>
-            <p id = "choice2">hi</p>
+            <p id = "choice2">-----</p>
             <button id="btn3">D</button>
-            <p id = "choice3">hi</p>
+            <p id = "choice3">-----</p>
         </div>
 
     </section>
 
     <!-- This is where the timer and score will go -->
     <section id = "scoreContainer">
-        <p id = "timer"></p>
+        <p id = "time">Time Remaining: <span id = "timer"></span></p>
         <br>
-        <p id = "score">This is your score</p>
+        <p id = "point">Score: <span id = "score"></span></p>
     </section>
     
     <script src="script.js"></script>

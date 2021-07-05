@@ -1,23 +1,73 @@
-/* body {
-    background-color: black;
-} */
+body {
+    background-color: darkgray;
+}
 
 #header {
-    padding: 5%;
-    color: brown;
+    padding: 3%;
+    color: aliceblue;
+    background-color: navy;
     text-align: center;
     font-size: 300%;
     border-style: solid;
-}
-
-/* This stylizes the buttons sections */
-.buttons {
-    font-size: 10px;
-    padding: 25px
+    border-radius: 100px;
 }
 
 #rule {
     text-align: center;
+    font-size: 25px;
+}
+
+/* this stylizes the question area including the answer choices */
+#questionContainer {
+    display: flex;
+    float: left;
+    border-style: solid;
+    width: 46%;
+    margin: 13.6px;
+    height: 500px;
+    background-color: powderblue;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 45px;
+}
+
+#introText {
+    position: relative;
+    font-size: 25px;
+    margin-left: 15%;
+}
+
+#questions {
+    font-size: 23px;
+    padding-left: 55px;
+    padding-right: 30px;
+    position: absolute;
+    margin-bottom: 310px;
+    width: 40%;
+}
+
+/* This stylizes the buttons sections */
+.buttons {
+    flex-direction: column;
+    width: 40%;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 140px;
+}
+
+.buttons p {
+    font-size: 20px;
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+    position: relative;
+    margin-left: 5px;
+    width: 45%;
+}
+
+#btn0, #btn1, #btn2, #btn3 {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
 }
 
 #start {
@@ -27,14 +77,22 @@
     font-size: 25px;
 }
 
-section {
+/* This Customizes the score and timer section */
+#scoreContainer {
     display: flex;
-    float: left;
     border-style: solid;
-    width: 48%;
+    width: 46%;
     margin: 13.6px;
     height: 500px;
     background-color: powderblue;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    border-radius: 45px;
+}
+
+#time, #point {
+    font-size: 35px;
+    position: relative;
+    margin-top: 100px;
 }

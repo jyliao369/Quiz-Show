@@ -3,6 +3,7 @@
 var testing = document.getElementById('scoreContainer');
 var questionEl = document.getElementById('questions');
 var timerEl = document.getElementById('timer');
+var scoreEl = document.getElementById('score');
 
 var buttonA = document.getElementById('btn0');
 var buttonB = document.getElementById('btn1');
@@ -22,11 +23,13 @@ var startSwitch = document.getElementById('start')
 
 var switchEl = document.getElementById('switch');
 
+var introEl = document.getElementById('introText');
+
 // This variable will help determine which questions is being displayed. With it being
 // zero, this is the first question that is going to be displayed.
 var currentQ = 0;
 
-var score = 0;
+score = 0;
 
 // This variable will determine the overall time to answer the questions.
 var timeCount;
@@ -138,13 +141,57 @@ var quizQues = [
 
 ]
 
+questionEl.style.display = "none";
+
+buttonA.style.display = "none";
+buttonB.style.display = "none";
+buttonC.style.display = "none";
+buttonD.style.display = "none";
+
+choiceA.style.display = "none";
+choiceB.style.display = "none";
+choiceC.style.display = "none";
+choiceD.style.display = "none";
+
+function timer() {
+
+    timeCount = 300;
+    
+    var countDown = setInterval(function() {
+
+        timerEl.textContent = timeCount + " Seconds Left";
+        console.log("Seconds Left: " + timeCount)
+        timeCount--;
+
+        if (timeCount <= -1) {
+            clearInterval(countDown);
+            questionEl.style.display = "none";
+
+            buttonA.style.display = "none";
+            buttonB.style.display = "none";
+            buttonC.style.display = "none";
+            buttonD.style.display = "none";
+
+            choiceA.style.display = "none";
+            choiceB.style.display = "none";
+            choiceC.style.display = "none";
+            choiceD.style.display = "none";
+        }
+
+    }, 1000);
+}
+
 function checkAns() {
     if (answerChoice === quizQues[currentQ].correctAns) {
         console.log("Correct");
         currentQ++;
+        score += 100;
+        scoreEl.textContent = score;
         showQues();
     } else {
+        timeCount -= 5;
         console.log("Wrong");
+        
     }
 }
 
@@ -173,7 +220,21 @@ function showQues() {
 // This event listener should be able to start the timer and display
 // the questions and the answers for the quiz. 
 startSwitch.addEventListener("click", function() {
-    // timer();
+
+    introEl.style.display = "none";
+
+    questionEl.style.display = "block";
+
+    buttonA.style.display = "block";
+    buttonB.style.display = "block";
+    buttonC.style.display = "block";
+    buttonD.style.display = "block";
+    
+    choiceA.style.display = "block";
+    choiceB.style.display = "block";
+    choiceC.style.display = "block";
+    choiceD.style.display = "block";
+    timer();
     showQues();
 });
 
