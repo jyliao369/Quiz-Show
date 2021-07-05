@@ -1,13 +1,14 @@
 // Here are all the variables that need to be established that grabs elements from 
 // the HTML based on the ID.
 var testing = document.getElementById('scoreContainer');
-var currentQues = document.getElementById('questions');
+var questionEl = document.getElementById('questions');
 var timerEl = document.getElementById('timer');
 
 var buttonA = document.getElementById('btn0');
 var buttonB = document.getElementById('btn1');
 var buttonC = document.getElementById('btn2');
 var buttonD = document.getElementById('btn3');
+var submitEl = document.getElementById('submit');
 
 // These variables will chnage based on question that is being asked
 var choiceA = document.getElementById('choice0');
@@ -23,12 +24,15 @@ var switchEl = document.getElementById('switch');
 
 // This variable will help determine which questions is being displayed. With it being
 // zero, this is the first question that is going to be displayed.
-var current = 0;
+var currentQ = 0;
+
+var score = 0;
 
 // This variable will determine the overall time to answer the questions.
 var timeCount;
 
-var answer = [];
+var quizAns = [];
+var answerChoice = "";
 
 // These are the questions that will be used in the quiz.
 // For now there are only three. More will be added. 
@@ -39,7 +43,7 @@ var quizQues = [
         b: 'Markup Language',
         c: 'Programming Language',
         d: 'Network Protocol',
-        correctAns: 'b'
+        correctAns: "b"
     },
 
     {
@@ -134,53 +138,42 @@ var quizQues = [
 
 ]
 
-
-
-
-console.log(quizQues.length);
-console.log(quizQues[0].question);
-console.log(quizQues[1].question);
-console.log(quizQues[2].question);
-
-function timer () {
-    
-    // Currently, the time limit is only 10 seconds but this can be adjusted.
-    timeCount = 11;
-    var countDown = setInterval(function() {
-        // console.log(timeCount);
-        timeCount --;
-        timerEl.textContent = timeCount + " seconds left";
-
-        if(timeCount === 0) {
-            clearInterval(countDown);
-            timerEl.textContent = "Time's Up!! You Lose!!";
-        }
-
-    }, 1000);
+function checkAns() {
+    if (answerChoice === quizQues[currentQ].correctAns) {
+        console.log("Correct");
+        currentQ++;
+        showQues();
+    } else {
+        console.log("Wrong");
+    }
 }
 
-// This function here is to display the question as well as display the
-// Answer choices for those specific questions. 
-// Originally, I had it display the question in random order based on the length of
-// the array. Now we should try to get it to go in the order of the array. 
+// This function here is to display the question as well as display the nswer choices for each specific questions. 
+// The function operates on an if statement, where if the current question passes the length of the array, it returns
+// nothing or a blank question to signify the end of the quiz.
 function showQues() {
 
-    // var random = Math.floor(Math.random() * quizQues.length);
+    if (currentQ < quizQues.length) { 
 
-    currentQues.textContent = quizQues[current].question;
-    choiceA.textContent = quizQues[current].a;
-    choiceB.textContent = quizQues[current].b;
-    choiceC.textContent = quizQues[current].c;
-    choiceD.textContent = quizQues[current].d;
+        questionEl.textContent = quizQues[currentQ].question;
+        choiceA.textContent = quizQues[currentQ].a;
+        choiceB.textContent = quizQues[currentQ].b;
+        choiceC.textContent = quizQues[currentQ].c;
+        choiceD.textContent = quizQues[currentQ].d;
 
-    current++;
-
+    } else {
+        questionEl.textContent = "";
+        choiceA.textContent = "";
+        choiceB.textContent = "";
+        choiceC.textContent = "";
+        choiceD.textContent = "";
+    }
 }
 
 // This event listener should be able to start the timer and display
 // the questions and the answers for the quiz. 
 startSwitch.addEventListener("click", function() {
-    timer();
+    // timer();
     showQues();
 });
 
@@ -188,22 +181,180 @@ startSwitch.addEventListener("click", function() {
 // answer is selected, there answer should be stored in an array that can then be compared to the
 // real anaswers.
 buttonA.addEventListener("click", function() {
-    showQues();
-    answer.push('a')
-    console.log(answer);
+    answerChoice = ("a");
+    checkAns();
 });
 buttonB.addEventListener("click", function() {
-    showQues();
-    answer.push('b')
-    console.log(answer);
+    answerChoice = ("b");
+    checkAns();
 });
 buttonC.addEventListener("click", function() {
-    showQues();
-    answer.push('c')
-    console.log(answer);
+    answerChoice = ("c");
+    checkAns();
 });
 buttonD.addEventListener("click", function() {
-    showQues();
-    answer.push('d')
-    console.log(answer);
+    answerChoice = ("d");
+    checkAns();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This function will compile the answers from the database of questions
+// It will use a for loop that will go down through the array and specifically pull each answer.
+// function getAnswer () {
+
+//     for (a = 0; a < quizQues.length; a++) {
+
+//         quizAns.push(quizQues[a].correctAns);
+
+//     }
+
+//     return quizAns;
+// }
+
+// function timer () {
+    
+//     // Currently, the time limit is only 10 seconds but this can be adjusted.
+//     timeCount = 11;
+//     var countDown = setInterval(function() {
+//         // console.log(timeCount);
+//         timeCount --;
+//         timerEl.textContent = timeCount + " seconds left";
+
+//         if(timeCount === 0) {
+//             clearInterval(countDown);
+//             timerEl.textContent = "Time's Up!! You Lose!!";
+//         }
+
+//     }, 1000);
+// }
+
+// // This function here is to display the question as well as display theAnswer choices for those specific questions. 
+// // Originally, I had it display the question in random order based on the length ofthe array. Now we should try to get 
+// // it to go in the order of the array. 
+// function showQues() {
+//     currentQues.textContent = quizQues[current].question;
+//     choiceA.textContent = quizQues[current].a;
+//     choiceB.textContent = quizQues[current].b;
+//     choiceC.textContent = quizQues[current].c;
+//     choiceD.textContent = quizQues[current].d;
+
+//     current++;
+// }
+
+// // This event listener should be able to start the timer and display
+// // the questions and the answers for the quiz. 
+// startSwitch.addEventListener("click", function() {
+//     timer();
+//     showQues();
+// });
+
+// // These event listeners' main function is to allow the user to select their answers. Once the
+// // answer is selected, there answer should be stored in an array that can then be compared to the
+// // real anaswers.
+// buttonA.addEventListener("click", function() {
+//     showQues();
+//     answer = ("a");
+//     console.log(answer);
+// });
+// buttonB.addEventListener("click", function() {
+//     showQues();
+//     answer = ("b");
+//     console.log(answer);
+// });
+// buttonC.addEventListener("click", function() {
+//     showQues();
+//     answer = ("c");
+//     console.log(answer);
+// });
+// buttonD.addEventListener("click", function() {
+//     showQues();
+//     answer = ("d");
+//     console.log(answer);
+// });
+
+// console.log(quizQues[0].correctAns);
+
+// // This function compares the answer of the the quiz answer and the answers that the user
+// // creates when they select their choices and determines which is right and wrong.
+// submitEl.addEventListener("click", function () {
+
+//     getAnswer();
+
+//     for (b = 0; b < answer.length; b++)  {
+
+//         if (answer[b] === quizAns[b]) {
+//             score++;
+//         }
+//     }
+//     console.log(score);
+// });
+
+
+// if (answerChoice !== quizQues[current].correctAns) {
+//     console.log("wrong answer");
+// } else {
+//     console.log("right answer");
+// }
