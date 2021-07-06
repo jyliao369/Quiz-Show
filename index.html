@@ -16,14 +16,14 @@
     <h1 id = "header">THIS IS THE ULTIMATE JAVASCRIPT QUIZ SHOW</h1>
     <div id="rule">
         <p>The Rules: </p>
-        <p>There are 10 questions in this quiz that will test your knowledge on Web Development.</p>
         <p>You have 5 mins or 300 seconds to finish the quiz. Choosing the wrong answer decreases the time by 5 seconds.</p>
+        <p>Each question is worth 100 points and decreases by half for every wrong choice selected.</p>
         <p>Run out of time and the game is over.</p> 
     </div>
     
     <div class = "control">
         <button id = "start">Start the Quiz!!!</button>
-        <button id = "reset">Reset Button</button>
+        <button id = "submit">Submit Button</button>
     </div>
     
 </header>
@@ -60,10 +60,18 @@
 
         <!-- This is where the timer and score will go -->
         <section id = "scoreContainer">
-            <p id = "time">Time Remaining: <span id = "timer"></span></p>
             <br>
-            <p id = "point">Score: <span id = "score"></span></p>
+            <input type="text" name = "name" id="name" placeholder="Bob" />
+            <p id = "time">Time Remaining: <span id = "timer"></span></p>
+            <p id = "point">Score: <span id = "score">0</span></p>
         </section>
+
+    </div>
+
+    <div id = "highScoreContainer">
+        <h2>Highscores</h2>
+        <p>Name: <span id = "finalName"></span></p>
+        <p>Score: <span id = "finalPoint"></span></p>
 
     </div>
     

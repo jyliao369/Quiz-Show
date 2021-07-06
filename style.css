@@ -3,18 +3,18 @@ body {
 }
 
 #header {
-    padding: 3%;
+    padding: 2%;
     color: aliceblue;
     background-color: navy;
     text-align: center;
-    font-size: 300%;
+    font-size: 250%;
     border-style: solid;
     border-radius: 100px;
 }
 
 #rule {
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .container {
@@ -46,7 +46,7 @@ body {
 
 #questions {
     font-size: 23px;
-    padding-left: 55px;
+    padding-left: 75px;
     padding-right: 30px;
     position: absolute;
     margin-bottom: 310px;
@@ -58,8 +58,8 @@ body {
     flex-direction: column;
     width: 40%;
     position: absolute;
-    margin-left: 50px;
-    margin-top: 140px;
+    margin-left: 75px;
+    margin-top: 125px;
 }
 
 .buttons p {
@@ -83,7 +83,7 @@ body {
     flex-wrap: wrap;
 }
 
-#start, #reset {
+#start, #submit {
     padding: 20px;
     font-size: 25px;
 }
@@ -107,4 +107,18 @@ body {
     font-size: 35px;
     position: relative;
     margin-top: 100px;
+}
+
+/* This stylizes the highcore area */
+#highScoreContainer {
+    display: flex;
+    border-style: solid;
+    width: 97.5%;
+    margin: 13.6px;
+    height: 220px;
+    background-color: powderblue;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 45px;
 }
