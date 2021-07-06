@@ -21,43 +21,51 @@
         <p>Run out of time and the game is over.</p> 
     </div>
     
-    <button id = "start">Start the Quiz!!!</button>
+    <div class = "control">
+        <button id = "start">Start the Quiz!!!</button>
+        <button id = "reset">Reset Button</button>
+    </div>
+    
 </header>
 
 <!-- Here the body is going to be split into two parts: -->
 
 <body>
 
-    <!-- This is where the questions will go -->
-    <section id = "questionContainer">
+    <div class = "container">
 
-        <p id = "introText">Think you got what it takes?
-        <br>
-        Think you understand Web Development?
-        <br>
-        Then press the START button and test your knowledge!</p> 
+        <!-- This is where the questions will go -->
+        <section id = "questionContainer">
+
+            <p id = "introText">Think you got what it takes?
+            <br>
+            Think you understand Web Development?
+            <br>
+            Then press the START button and test your knowledge!</p> 
         
-        <p id = "questions"></p>
+            <p id = "questions"></p>
 
-        <div class="buttons">
-            <button id="btn0">A</button>
-            <p id = "choice0">-----</p>
-            <button id="btn1">B</button>
-            <p id = "choice1">-----</p>
-            <button id="btn2">C</button>
-            <p id = "choice2">-----</p>
-            <button id="btn3">D</button>
-            <p id = "choice3">-----</p>
-        </div>
+            <div class="buttons">
+                <button id="btn0">A</button>
+                <p id = "choice0">-----</p>
+                <button id="btn1">B</button>
+                <p id = "choice1">-----</p>
+                <button id="btn2">C</button>
+                <p id = "choice2">-----</p>
+                <button id="btn3">D</button>
+                <p id = "choice3">-----</p>
+            </div>
 
-    </section>
+        </section>
 
-    <!-- This is where the timer and score will go -->
-    <section id = "scoreContainer">
-        <p id = "time">Time Remaining: <span id = "timer"></span></p>
-        <br>
-        <p id = "point">Score: <span id = "score"></span></p>
-    </section>
+        <!-- This is where the timer and score will go -->
+        <section id = "scoreContainer">
+            <p id = "time">Time Remaining: <span id = "timer"></span></p>
+            <br>
+            <p id = "point">Score: <span id = "score"></span></p>
+        </section>
+
+    </div>
     
     <script src="script.js"></script>
 

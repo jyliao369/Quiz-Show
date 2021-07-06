@@ -31,6 +31,8 @@ var currentQ = 0;
 
 score = 0;
 
+var points = 100;
+
 // This variable will determine the overall time to answer the questions.
 var timeCount;
 
@@ -160,7 +162,6 @@ function timer() {
     var countDown = setInterval(function() {
 
         timerEl.textContent = timeCount + " Seconds Left";
-        console.log("Seconds Left: " + timeCount)
         timeCount--;
 
         if (timeCount <= -1) {
@@ -182,16 +183,21 @@ function timer() {
 }
 
 function checkAns() {
+
     if (answerChoice === quizQues[currentQ].correctAns) {
-        console.log("Correct");
+        // console.log("Correct");
+        // console.log(points);
         currentQ++;
-        score += 100;
+        score += points;
         scoreEl.textContent = score;
         showQues();
+        points = 100;
     } else {
         timeCount -= 5;
-        console.log("Wrong");
-        
+        timerEl.textContent = timeCount + " Seconds Left";
+        points/=2;
+        // console.log("Wrong");
+        // console.log(points);
     }
 }
 
