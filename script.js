@@ -27,8 +27,6 @@ var introEl = document.getElementById('introText');
 var highName = document.getElementById('finalName');
 var highScore = document.getElementById('finalPoint');
 
-// var nameInput = document.querySelector("#name");
-
 // This variable will help determine which questions is being displayed. With it being
 // zero, this is the first question that is going to be displayed.
 var currentQ = 0;
@@ -245,17 +243,21 @@ renderHighScore();
 // This is the timer function.
 function timer() {
 
-    timeCount = 301;
+    timeCount = 151;
     
     countDown = setInterval(function() {
 
         timeCount--;
-        timerEl.textContent = timeCount + " Seconds Left";
 
         if (timeCount <= 0) {
             clearInterval(countDown);
             startSwitch.disabled = false;
             submitEl.disabled = false;
+            points = 100;
+
+            timerEl.textContent = "0 Seconds Left";
+            
+
             questionEl.style.display = "none";
 
             buttonA.style.display = "none";
@@ -271,6 +273,8 @@ function timer() {
             introEl.textContent = "Game Over!! You Ran Out of Time! Try Again!!";
             introEl.style.display = "block";
         }
+
+        timerEl.textContent = timeCount + " Seconds Left";
 
     }, 1000);
 }
@@ -307,7 +311,6 @@ function showQues() {
 
         clearInterval(countDown);
         submitEl.disabled = false;
-        startSwitch.disabled = false;
         questionEl.textContent = "";
         choiceA.textContent = "";
         choiceB.textContent = "";
@@ -338,6 +341,11 @@ function renderHighScore() {
 // This event listener should be able to start the timer and display
 // the questions and the answers for the quiz. 
 startSwitch.addEventListener("click", function() {
+
+    currentQ = 0;
+
+    timerEl.textContent = "";
+    scoreEl.textContent = "";
 
     submitEl.disabled = true;
 
@@ -388,12 +396,18 @@ buttonD.addEventListener("click", function() {
 submitEl.addEventListener("click", function(event) {
     event.preventDefault();
 
-    submitEl.disabled = true;
 
     var name = document.querySelector("#name").value;
     var score1 = score.toString();
 
-    localStorage.setItem("name", name);
-    localStorage.setItem("point", score1);
-    renderHighScore();
+    if (name === "") {
+        alert("A name is needed to submit score");
+    } else {
+        startSwitch.disabled = false;
+        submitEl.disabled = true;
+        localStorage.setItem("name", name);
+        localStorage.setItem("point", score1);
+        renderHighScore();
+    }
 });
+
