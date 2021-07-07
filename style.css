@@ -1,124 +1,137 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color: darkgray;
+  font-family: sans-serif;
+  background-color: #f9fbfd;
 }
 
-#header {
-    padding: 2%;
-    color: aliceblue;
-    background-color: navy;
-    text-align: center;
-    font-size: 250%;
-    border-style: solid;
-    border-radius: 100px;
+.wrapper {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-#rule {
-    text-align: center;
-    font-size: 20px;
+header {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  color: hsl(206, 17%, 28%);
 }
 
-.container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.card {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  color: hsl(206, 17%, 28%);
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 30px 40px;
 }
 
-/* this stylizes the question area including the answer choices */
-#questionContainer {
-    display: flex;
-    float: left;
-    border-style: solid;
-    width: 47%;
-    margin: 13.6px;
-    height: 500px;
-    background-color: powderblue;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 45px;
+.card-header::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
 }
 
-#introText {
-    position: relative;
-    font-size: 25px;
-    margin-left: 15%;
-    margin-right: 10%;
+.card-body {
+  min-height: 100px;
 }
 
-#questions {
-    font-size: 23px;
-    padding-left: 75px;
-    padding-right: 30px;
-    position: absolute;
-    margin-bottom: 310px;
-    width: 40%;
+.card-footer {
+  text-align: center;
 }
 
-/* This stylizes the buttons sections */
-.buttons {
-    flex-direction: column;
-    width: 40%;
-    position: absolute;
-    margin-left: 75px;
-    margin-top: 125px;
+.card-footer::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
 }
 
-.buttons p {
-    font-size: 20px;
-    margin-top: 5.5px;
-    margin-bottom: 5.5px;
-    position: relative;
-    margin-left: 5px;
-    width: 45%;
+.card-footer::after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 
-#btn0, #btn1, #btn2, #btn3 {
-    font-size: 20px;
-    width: 30px;
-    height: 30px;
+.btn {
+  border: none;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+    0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 16px 16px 16px 20px;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
 }
 
-.control {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+button[disabled] {
+  cursor: default;
+  background: #c0c7cf;
 }
 
-#start, #submit {
-    padding: 20px;
-    font-size: 25px;
+.float-right {
+  float: right;
 }
 
-/* This Customizes the score and timer section */
-#scoreContainer {
-    display: flex;
-    border-style: solid;
-    width: 47%;
-    margin: 13.6px;
-    height: 500px;
-    background-color: powderblue;
-    flex-direction: column;
-    align-items: center;
-    font-size: 35px;
-    float: left;
-    border-radius: 45px;
+#password {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: block;
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 85px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px dashed #c0c7cf;
+  border-radius: 6px;
+  resize: none;
+  overflow: hidden;
 }
 
-#time, #point {
-    font-size: 35px;
-    position: relative;
-    margin-top: 100px;
+@media (max-width: 690px) {
+  .btn {
+    font-size: 1rem;
+    margin: 16px 0px 0px 0px;
+    padding: 10px 15px;
+  }
+
+  #password {
+    font-size: 1rem;
+  }
 }
 
-/* This stylizes the highcore area */
-#highScoreContainer {
-    display: flex;
-    border-style: solid;
-    width: 97.5%;
-    margin: 13.6px;
-    height: 220px;
-    background-color: powderblue;
-    flex-direction: column;
-    align-items: center;
-    font-size: 20px;
-    border-radius: 45px;
+@media (max-width: 500px) {
+  .btn {
+    font-size: 0.8rem;
+  }
 }

@@ -1,82 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Remember this link on the bottom. It allows you to link your CSS/Style sheet if it is at the root -->
-    <link rel="stylesheet" href="style.css"> 
-    <!-- Make sure to remember this. This is the correct setup that will link your Javascript with the html -->
-</head>
-
-<!-- This is where the header is placed normally for the title of the game show -->
-<header>
-    <h1 id = "header">THIS IS THE ULTIMATE JAVASCRIPT QUIZ SHOW</h1>
-    <div id="rule">
-        <p>The Rules: </p>
-        <p>You have 5 mins or 300 seconds to finish the quiz. Choosing the wrong answer decreases the time by 5 seconds.</p>
-        <p>Each question is worth 100 points and decreases by half for every wrong choice selected.</p>
-        <p>Run out of time and the game is over.</p> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
     </div>
-    
-    <div class = "control">
-        <button id = "start">Start the Quiz!!!</button>
-        <button id = "submit">Submit Button</button>
-    </div>
-    
-</header>
-
-<!-- Here the body is going to be split into two parts: -->
-
-<body>
-
-    <div class = "container">
-
-        <!-- This is where the questions will go -->
-        <section id = "questionContainer">
-
-            <p id = "introText">Think you got what it takes?
-            <br>
-            Think you understand Web Development?
-            <br>
-            Then press the START button and test your knowledge!</p> 
-        
-            <p id = "questions"></p>
-
-            <div class="buttons">
-                <button id="btn0">A</button>
-                <p id = "choice0">-----</p>
-                <button id="btn1">B</button>
-                <p id = "choice1">-----</p>
-                <button id="btn2">C</button>
-                <p id = "choice2">-----</p>
-                <button id="btn3">D</button>
-                <p id = "choice3">-----</p>
-            </div>
-
-        </section>
-
-        <!-- This is where the timer and score will go -->
-        <section id = "scoreContainer">
-            <br>
-            <input type="text" name = "name" id="name" placeholder="Bob" />
-            <p id = "time">Time Remaining: <span id = "timer"></span></p>
-            <p id = "point">Score: <span id = "score">0</span></p>
-        </section>
-
-    </div>
-
-    <div id = "highScoreContainer">
-        <h2>Highscores</h2>
-        <p>Name: <span id = "finalName"></span></p>
-        <p>Score: <span id = "finalPoint"></span></p>
-
-    </div>
-    
     <script src="script.js"></script>
-
-</body>
-
+  </body>
 </html>
