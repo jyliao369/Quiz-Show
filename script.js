@@ -321,10 +321,11 @@ function showQues() {
         
         introEl.textContent = "Congratulation!! The Quiz is Over!!";
         introEl.style.display = "block";
-        
+
     }
 }
 
+//This prints the highscore in the highscore section
 function renderHighScore() {
 
     var names = localStorage.getItem("name");
