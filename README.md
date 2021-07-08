@@ -57,4 +57,11 @@ The goal is to create a quiz that users can take to test their knowledge on Web 
 ![Highscore](./screenshot/screenshot9.JPG)
 
 
+-- Final Product --
+![Final](./screenshot/screenshot10.JPG)
+
 ## Working Application
+
+GitHub Repo: https://github.com/jyliao369/Quiz-Show
+
+Web Application Site: 

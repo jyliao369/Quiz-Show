@@ -247,11 +247,9 @@ function timer() {
     
     countDown = setInterval(function() {
 
-        timeCount--;
-
-        if (timeCount <= 0) {
+        if (timeCount < 0) {
             clearInterval(countDown);
-            startSwitch.disabled = false;
+            startSwitch.disabled = true;
             submitEl.disabled = false;
             points = 100;
 
@@ -272,9 +270,11 @@ function timer() {
 
             introEl.textContent = "Game Over!! You Ran Out of Time! Try Again!!";
             introEl.style.display = "block";
+        } else {
+            timerEl.textContent = timeCount + " Seconds Left";
         }
 
-        timerEl.textContent = timeCount + " Seconds Left";
+        timeCount--;
 
     }, 1000);
 }
@@ -343,6 +343,7 @@ function renderHighScore() {
 startSwitch.addEventListener("click", function() {
 
     currentQ = 0;
+    score = 0;
 
     timerEl.textContent = "";
     scoreEl.textContent = "";
